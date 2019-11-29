@@ -13,7 +13,7 @@ jobs:
       - run: pwd
       - run: ls -la
       - checkout
-      - run: apt-get update && apt-get install default-mysql-client
+      - run: apt-get update && apt-get install -y default-mysql-client
   two:
     docker:
       - image: node:8.16
