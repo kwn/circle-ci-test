@@ -1,20 +1,27 @@
-version: 2
+version: 2.1
 jobs:
   one:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: node:8.16
+      - image: mysql:5.7
+        environment:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: test
+          MYSQL_USER: test
+          MYSQL_PASSWORD: test
     steps:
       - run: pwd
       - run: ls -la
-      - run: echo "A first hello"
-      - run: sleep 10
+      - checkout
+      - run: apt-get install mysql-client
   two:
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: node:8.16
     steps:
       - checkout
       - run: echo "A first hello"
       - run: sleep 10
+
 workflows:
   version: 2
   one_and_two:
