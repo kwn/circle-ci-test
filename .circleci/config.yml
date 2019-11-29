@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   one:
     docker:
-      - image: node:8.16
+      - image: node:8.16-buster
       - image: mysql:5.7
         environment:
           MYSQL_ROOT_PASSWORD: root
